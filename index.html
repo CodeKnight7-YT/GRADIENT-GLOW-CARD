@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Glow Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        html, body, div {
+            display: grid;
+        }
+        html {
+            min-height: 100%;
+        }
+        body, div {
+            place-content: center;
+        }
+        body {
+            grid-gap: 1.75em;
+            grid-template-columns: repeat(auto-fit, Min(100%, 10em));
+            background: #1d031f;
+            color: #fff;
+            font: 200 1.75em 'Poppins', sans-serif;
+            text-shadow: 1px 1px 2px;
+        }
+        .box {
+            --list: #ffbc00, #ff0058;
+            --grad: linear-gradient(45deg, var(--list));
+            position: relative;
+            border: solid 4px #0000;
+            aspect-ratio: 7/10;
+            border-radius: 1em;
+            background: conic-gradient(rgb(0 0 0/ .75) 0 0) padding-box, var(--grad) border-box;
+        }
+        .box:nth-child(2) {
+            --list: #03a9f4, #ff0058;
+        }
+        .box:nth-child(3) {
+            --list: #4dff03, #00d0ff;
+        }
+        .box::before {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: var(--grad);
+            filter: blur(.75em);
+            content: '';
+        }
+    </style>
+</head>
+<body>
+    <div class="box">Gradient</div>
+    <div class="box">Glow</div>
+    <div class="box">Card</div>
+</body>
+</html>
